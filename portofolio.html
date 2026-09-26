@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0F1A" />
+    <meta
+      name="description"
+      content="Lihat dokumentasi proyek pembangunan rumah SYENNZAR melalui galeri foto dan video pekerjaan."
+    />
+    <title>Portofolio Proyek | SYENNZAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --page: #0a0f1a;
+        --panel: #16213a;
+        --panel-light: #1e2a47;
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #f59e0b;
+        --accent-bright: #fbbf24;
+        --accent-ink: #0a0f1a;
+        --emerald: #10b981;
+        --sans: "Inter", sans-serif;
+        --display: "Space Grotesk", sans-serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid var(--line);
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(16px);
+      }
+      .nav {
+        width: min(1440px, calc(100% - 64px));
+        height: 76px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--display);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        color: var(--accent-ink);
+        background: var(--accent);
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px 15px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .nav-cta:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      main {
+        width: min(1440px, calc(100% - 64px));
+        margin: auto;
+      }
+      .intro {
+        position: relative;
+        padding: 76px 0 50px;
+        overflow: hidden;
+      }
+      .intro::after {
+        position: absolute;
+        z-index: 0;
+              .intro > * {
+                position: relative;
+                z-index: 1;
+              }
+        top: -130px;
+        right: -50px;
+        width: 440px;
+        height: 440px;
+        background-image:
+          linear-gradient(rgba(245, 158, 11, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 158, 11, 0.08) 1px, transparent 1px),
+          linear-gradient(rgba(245, 158, 11, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 158, 11, 0.035) 1px, transparent 1px);
+        background-size: 88px 88px, 88px 88px, 22px 22px, 22px 22px;
+        mask-image: linear-gradient(90deg, transparent, #000 35%, #000);
+        content: "";
+        pointer-events: none;
+        opacity: 0.8;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before {
+        width: 25px;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+      h1 {
+        max-width: 850px;
+        margin: 0;
+        font-family: var(--display);
+        font-size: clamp(44px, 6vw, 82px);
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 0.98;
+      }
+      h1 span {
+        color: var(--accent);
+        font-family: var(--serif);
+        font-weight: 400;
+        font-style: italic;
+      }
+      .intro-bottom {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-top: 26px;
+      }
+      .intro-copy {
+        max-width: 470px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      .project-count {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        white-space: nowrap;
+      }
+      .project-count strong {
+        color: var(--accent);
+        font-family: var(--display);
+        font-size: 36px;
+      }
+      .project-count span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 21px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .filter {
+        min-height: 39px;
+        padding: 0 15px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.2s ease;
+      }
+      .filter:hover {
+        color: var(--text);
+      }
+      .filter[aria-pressed="true"] {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+      .filter[aria-pressed="true"]:hover {
+        background: var(--accent-bright);
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: min(260px, 38vw);
+        min-height: 40px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        color: var(--muted);
+      }
+      .search:focus-within {
+        border-color: var(--accent);
+      }
+      .search input {
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--text);
+        font-size: 13px;
+      }
+      .search input::placeholder {
+        color: #64748b;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px 20px;
+        padding: 28px 0 90px;
+      }
+      .work {
+        min-width: 0;
+        animation: enter 0.45s both;
+      }
+      .work[hidden] {
+        display: none;
+      }
+      .work-button {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        border-radius: 4px;
+        background: var(--panel);
+        cursor: zoom-in;
+        text-align: left;
+        aspect-ratio: 1.36;
+      }
+      .work-button::after {
+        position: absolute;
+        inset: 45% 0 0;
+        background: linear-gradient(transparent, rgba(10, 15, 26, 0.55));
+        content: "";
+        pointer-events: none;
+        opacity: 0.55;
+        transition: opacity 0.25s;
+      }
+      .work-button img,
+      .work-button video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1),
+          filter 0.3s;
+      }
+      .work-button:hover img,
+      .work-button:hover video {
+        transform: scale(1.045);
+      }
+      .work-button:hover::after {
+        opacity: 1;
+      }
+      .media-type {
+        position: absolute;
+        z-index: 1;
+        top: 13px;
+        left: 13px;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 50%;
+        background: rgba(10, 15, 26, 0.78);
+        color: var(--accent-bright);
+        font-size: 12px;
+        backdrop-filter: blur(8px);
+      }
+      .work-index {
+        position: absolute;
+        z-index: 1;
+        right: 14px;
+        bottom: 13px;
+        color: rgba(255, 255, 255, 0.86);
+        font-family: var(--display);
+        font-size: 11px;
+      }
+      .work-caption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 12px;
+      }
+      .work-caption h2 {
+        overflow: hidden;
+        margin: 0;
+        color: var(--text);
+        font-family: var(--display);
+        font-size: 14px;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .work-caption p {
+        flex: 0 0 auto;
+        margin: 0;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .empty-state {
+        display: none;
+        grid-column: 1 / -1;
+        padding: 80px 20px;
+        color: var(--muted);
+        text-align: center;
+      }
+      .empty-state.is-visible {
+        display: block;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 24px 0 36px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .footer a {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      dialog {
+        width: min(1100px, calc(100% - 32px));
+        max-width: none;
+        max-height: calc(100% - 32px);
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 5px;
+        background: #0a0f1a;
+        color: var(--text);
+      }
+      dialog::backdrop {
+        background: rgba(5, 8, 15, 0.88);
+        backdrop-filter: blur(8px);
+      }
+      .viewer {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 240px;
+        background: #0a0f1a;
+      }
+      .viewer img,
+      .viewer video {
+        display: block;
+        width: 100%;
+        max-height: min(76vh, 780px);
+        object-fit: contain;
+      }
+      .viewer video {
+        width: auto;
+        max-width: 100%;
+      }
+      .viewer-close,
+      .viewer-arrow {
+        position: absolute;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.88);
+        color: white;
+        cursor: pointer;
+      }
+      .viewer-close {
+        top: 14px;
+        right: 14px;
+      }
+      .viewer-arrow {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .viewer-prev {
+        left: 14px;
+      }
+      .viewer-next {
+        right: 14px;
+      }
+      .viewer-caption {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 15px 18px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .viewer-caption strong {
+        color: var(--text);
+        font-family: var(--display);
+        font-size: 14px;
+      }
+      @keyframes enter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (min-width: 1100px) {
+        .gallery {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 760px) {
+        .nav,
+        main {
+          width: min(100% - 36px, 620px);
+        }
+        .nav {
+          height: 66px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-cta {
+          padding: 10px 11px;
+          font-size: 12px;
+        }
+        .intro {
+          padding: 55px 0 36px;
+        }
+        .intro::after {
+          top: -85px;
+          right: -270px;
+        }
+        .intro-bottom {
+          align-items: start;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .intro-copy {
+          font-size: 14px;
+        }
+        .toolbar {
+          align-items: stretch;
+          flex-direction: column;
+        }
+        .search {
+          width: 100%;
+        }
+        .gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 23px 12px;
+          padding-top: 20px;
+        }
+        .work-button {
+          aspect-ratio: 0.95;
+        }
+        .work-caption {
+          align-items: start;
+          flex-direction: column;
+          gap: 4px;
+          padding-top: 9px;
+        }
+        .work-caption h2 {
+          max-width: 100%;
+          font-size: 13px;
+        }
+        .footer {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 390px) {
+        .brand {
+          font-size: 14px;
+        }
+        .nav-cta {
+          font-size: 0;
+        }
+        .nav-cta i {
+          font-size: 15px;
+        }
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+        .work-button {
+          aspect-ratio: 1.25;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="/index.html" class="flex items-center gap-2.5 group">
+            <div>
+                <img src="logo.png" alt="Syennzar Logo" class="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+            </div>
+            <div class="leading-tight">
+                <p class="font-display font-bold text-lg text-white tracking-tight"><span class="text-amber-500">SYENNZAR</span></p>
+                <p class=" text-[10px] text-slate-400 -mt-0.5">KONTRAKTOR &amp; PEMBORONG RUMAH</p>
+            </div>
+        </a>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="index.html#layanan">Layanan</a>
+          <a href="index.html#keunggulan">Keunggulan</a
+        </div>
+        <a
+          class="nav-cta"
+          href="https://wa.me/6281282049540?text=Halo%20Syennzar%2C%20saya%20ingin%20konsultasi%20gratis%20untuk%20membangun%20rumah."
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          Konsultasi</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Dokumentasi proyek</p>
+        <h1 id="page-title">Ruang yang <span>kami bangun.</span></h1>
+        <div class="intro-bottom">
+          <p class="intro-copy">
+            Kumpulan proses dan hasil pekerjaan SYENNZAR. Dari struktur yang
+            mulai berdiri sampai detail rumah yang siap dihuni.
+          </p>
+          <div class="project-count">
+            <strong id="totalCount">26</strong
+            ><span>foto &amp; video proyek</span>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Galeri portofolio">
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter jenis media">
+            <button
+              class="filter"
+              type="button"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              Semua <span data-count="all">26</span>
+            </button>
+            <button
+              class="filter"
+              type="button"
+              data-filter="photo"
+              aria-pressed="false"
+            >
+              Foto <span data-count="photo">20</span>
+            </button>
+            <button
+              class="filter"
+              type="button"
+              data-filter="video"
+              aria-pressed="false"
+            >
+              Video <span data-count="video">6</span>
+            </button>
+          </div>
+          <label class="search"
+            ><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i
+            ><input
+              id="searchInput"
+              type="search"
+              placeholder="Cari proyek..."
+              aria-label="Cari proyek"
+          /></label>
+        </div>
+        <div id="gallery" class="gallery" aria-live="polite"></div>
+        <p id="emptyState" class="empty-state">
+          Tidak ada proyek yang cocok. Coba kata pencarian lain.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 SYENNZAR · Jasa Bangun Rumah</span
+        ><a href="index.html"
+          >Kembali ke halaman utama
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+        ></a>
+      </footer>
+    </main>
+
+    <dialog id="viewer" aria-label="Pratinjau portofolio">
+      <div class="viewer">
+        <button class="viewer-close" type="button" aria-label="Tutup pratinjau">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <button
+          class="viewer-arrow viewer-prev"
+          type="button"
+          aria-label="Media sebelumnya"
+        >
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <div id="viewerMedia"></div>
+        <button
+          class="viewer-arrow viewer-next"
+          type="button"
+          aria-label="Media berikutnya"
+        >
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="viewer-caption">
+        <strong id="viewerTitle"></strong><span id="viewerPosition"></span>
+      </div>
+    </dialog>
+
+    <script>
+      const projects = [
+        ...[
+          "image.jpeg",
+          ...Array.from({ length: 19 }, (_, index) => `image${index + 1}.jpeg`),
+        ].map((file, index) => ({
+          file,
+          type: "photo",
+          title: `Dokumentasi proyek ${String(index + 1).padStart(2, "0")}`,
+        })),
+        ...[
+          "video1.mp4",
+          "video2.mp4",
+          "video3.mp4",
+          "video4.mp4",
+          "video5.mp4",
+          "vidio6.mp4",
+        ].map((file, index) => ({
+          file,
+          type: "video",
+          title: `Proses pembangunan ${String(index + 1).padStart(2, "0")}`,
+        })),
+      ];
+
+      const gallery = document.getElementById("gallery");
+      const searchInput = document.getElementById("searchInput");
+      const emptyState = document.getElementById("emptyState");
+      const viewer = document.getElementById("viewer");
+      const viewerMedia = document.getElementById("viewerMedia");
+      const viewerTitle = document.getElementById("viewerTitle");
+      const viewerPosition = document.getElementById("viewerPosition");
+      let activeFilter = "all";
+      let visibleProjects = projects;
+      let activeIndex = 0;
+
+      document.getElementById("totalCount").textContent = projects.length;
+      document.querySelector('[data-count="all"]').textContent =
+        projects.length;
+      document.querySelector('[data-count="photo"]').textContent =
+        projects.filter((project) => project.type === "photo").length;
+      document.querySelector('[data-count="video"]').textContent =
+        projects.filter((project) => project.type === "video").length;
+
+      function createCard(project, index) {
+        const card = document.createElement("article");
+        card.className = "work";
+        card.dataset.type = project.type;
+        card.dataset.title = project.title.toLowerCase();
+        card.dataset.file = project.file.toLowerCase();
+
+        const button = document.createElement("button");
+        button.className = "work-button";
+        button.type = "button";
+        button.setAttribute("aria-label", `Buka ${project.title}`);
+        button.addEventListener("click", () =>
+          openViewer(visibleProjects.indexOf(project)),
+        );
+
+        const media = document.createElement(
+          project.type === "photo" ? "img" : "video",
+        );
+        media.src = `assets/${project.file}`;
+        media.alt = project.type === "photo" ? project.title : "";
+        if (project.type === "photo") {
+          media.loading = "lazy";
+          media.decoding = "async";
+        } else {
+          media.muted = true;
+          media.loop = true;
+          media.autoplay = true;
+          media.playsInline = true;
+          media.preload = "metadata";
+          media.setAttribute("aria-label", project.title);
+        }
+
+        const typeIcon = document.createElement("span");
+        typeIcon.className = "media-type";
+        typeIcon.innerHTML =
+          project.type === "video"
+            ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+            : '<i class="fa-regular fa-image" aria-hidden="true"></i>';
+        const number = document.createElement("span");
+        number.className = "work-index";
+        number.textContent = String(index + 1).padStart(2, "0");
+        button.append(media, typeIcon, number);
+
+        const caption = document.createElement("div");
+        caption.className = "work-caption";
+        const title = document.createElement("h2");
+        title.textContent = project.title;
+        const kind = document.createElement("p");
+        kind.textContent =
+          project.type === "photo" ? "Foto proyek" : "Video proyek";
+        caption.append(title, kind);
+        card.append(button, caption);
+        return card;
+      }
+
+      projects.forEach((project, index) =>
+        gallery.append(createCard(project, index)),
+      );
+
+      function applyFilters() {
+        const query = searchInput.value.trim().toLocaleLowerCase("id");
+        visibleProjects = projects.filter((project) => {
+          const matchesType =
+            activeFilter === "all" || project.type === activeFilter;
+          const matchesSearch =
+            project.title.toLocaleLowerCase("id").includes(query) ||
+            project.file.toLocaleLowerCase("id").includes(query);
+          return matchesType && matchesSearch;
+        });
+        gallery.querySelectorAll(".work").forEach((card) => {
+          const matchesType =
+            activeFilter === "all" || card.dataset.type === activeFilter;
+          const matchesSearch =
+            card.dataset.title.includes(query) ||
+            card.dataset.file.includes(query);
+          card.hidden = !(matchesType && matchesSearch);
+        });
+        emptyState.classList.toggle("is-visible", visibleProjects.length === 0);
+      }
+
+      document.querySelectorAll(".filter").forEach((button) =>
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          document
+            .querySelectorAll(".filter")
+            .forEach((filter) =>
+              filter.setAttribute("aria-pressed", String(filter === button)),
+            );
+          applyFilters();
+        }),
+      );
+      searchInput.addEventListener("input", applyFilters);
+
+      function openViewer(index) {
+        activeIndex = index;
+        renderViewer();
+        viewer.showModal();
+      }
+
+      function renderViewer() {
+        const project = visibleProjects[activeIndex];
+        viewerMedia.replaceChildren();
+        const media = document.createElement(
+          project.type === "photo" ? "img" : "video",
+        );
+        media.src = `assets/${project.file}`;
+        media.alt = project.type === "photo" ? project.title : "";
+        if (project.type === "video") {
+          media.controls = true;
+          media.autoplay = true;
+          media.playsInline = true;
+        }
+        viewerMedia.append(media);
+        viewerTitle.textContent = project.title;
+        viewerPosition.textContent = `${activeIndex + 1} / ${visibleProjects.length}`;
+      }
+
+      function moveViewer(direction) {
+        activeIndex =
+          (activeIndex + direction + visibleProjects.length) %
+          visibleProjects.length;
+        renderViewer();
+      }
+
+      document
+        .querySelector(".viewer-close")
+        .addEventListener("click", () => viewer.close());
+      document
+        .querySelector(".viewer-prev")
+        .addEventListener("click", () => moveViewer(-1));
+      document
+        .querySelector(".viewer-next")
+        .addEventListener("click", () => moveViewer(1));
+      viewer.addEventListener("click", (event) => {
+        if (event.target === viewer) viewer.close();
+      });
+      viewer.addEventListener("close", () => viewerMedia.replaceChildren());
+      document.addEventListener("keydown", (event) => {
+        if (!viewer.open) return;
+        if (event.key === "ArrowLeft") moveViewer(-1);
+        if (event.key === "ArrowRight") moveViewer(1);
+      });
+    </script>
+  </body>
+</html>
