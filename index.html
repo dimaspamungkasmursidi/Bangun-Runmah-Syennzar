@@ -290,6 +290,169 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      .hero-slider {
+        position: relative;
+        min-height: 460px;
+        overflow: hidden;
+        background: #0a0f1a;
+        isolation: isolate;
+      }
+      .hero-slider-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transform: scale(1.035);
+        transition:
+          opacity 0.7s ease,
+          transform 5.5s ease;
+      }
+      .hero-slider-image.is-active {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .hero-slider-shade {
+        position: absolute;
+        inset: 35% 0 0;
+        z-index: 1;
+        background: linear-gradient(transparent, rgba(10, 15, 26, 0.88));
+        pointer-events: none;
+      }
+      .hero-slider-label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 6px;
+        background: rgba(10, 15, 26, 0.66);
+        color: #fbbf24;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        backdrop-filter: blur(10px);
+      }
+      .hero-slider-label span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #34d399;
+        box-shadow: 0 0 12px rgba(52, 211, 153, 0.7);
+      }
+      .hero-slider-caption {
+        position: absolute;
+        right: 24px;
+        bottom: 76px;
+        left: 24px;
+        z-index: 2;
+        color: white;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(20px, 2.5vw, 28px);
+        font-weight: 700;
+      }
+      .hero-slider-caption small {
+        display: block;
+        margin-bottom: 7px;
+        color: #fbbf24;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+      .hero-slider-controls {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .hero-slider-button {
+        display: grid;
+        flex: 0 0 38px;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.72);
+        color: white;
+        cursor: pointer;
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+        backdrop-filter: blur(8px);
+      }
+      .hero-slider-button:hover {
+        border-color: #f59e0b;
+        background: #f59e0b;
+        color: #0a0f1a;
+      }
+      .hero-slider-progress {
+        height: 3px;
+        flex: 1;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.26);
+      }
+      .hero-slider-progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: #f59e0b;
+        transition: width 0.4s ease;
+      }
+      .hero-slider-count {
+        min-width: 53px;
+        color: white;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        text-align: center;
+      }
+      .hero-slider:focus-visible {
+        outline: 2px solid #f59e0b;
+        outline-offset: 4px;
+      }
+      @media (max-width: 640px) {
+        .hero-slider {
+          min-height: 360px;
+        }
+        .hero-slider-label {
+          top: 14px;
+          left: 14px;
+        }
+        .hero-slider-caption {
+          right: 16px;
+          bottom: 70px;
+          left: 16px;
+        }
+        .hero-slider-controls {
+          right: 14px;
+          bottom: 14px;
+          left: 14px;
+          gap: 9px;
+        }
+        .hero-slider-button {
+          flex-basis: 36px;
+          width: 36px;
+          height: 36px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-slider-image,
+        .hero-slider-progress span {
+          transition: none;
+        }
+      }
     </style>
   </head>
 
@@ -472,17 +635,76 @@
           <div
             class="blueprint-corners rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10"
           >
-            <video
-              src="https://videos.pexels.com/video-files/39576523/16868249_2560_1440_30fps.mp4"
-              poster="assets/image.jpeg"
-              class="w-full h-[460px] object-cover"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              aria-label="Video rumah modern dua lantai hasil pembangunan SYENNZAR"
-            ></video>
+            <div
+              id="heroSlider"
+              class="hero-slider"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Galeri foto proyek SYENNZAR"
+              tabindex="0"
+            >
+              <img
+                id="heroSliderImage"
+                src="assets/slide.jpg"
+                alt="Dokumentasi proyek rumah SYENNZAR, foto 1 dari 20"
+                class="hero-slider-image is-active"
+                fetchpriority="high"
+              />
+              <img
+                id="heroSliderImageAlt"
+                class="hero-slider-image"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="hero-slider-shade" aria-hidden="true"></div>
+              <div class="hero-slider-label"><span></span>GALERI PROYEK</div>
+              <div class="hero-slider-caption" aria-live="polite">
+                <small>PORTOFOLIO SYENNZAR</small>
+                <span id="heroSliderTitle">Dokumentasi Proyek</span>
+              </div>
+              <div class="hero-slider-controls">
+                <button
+                  id="heroSliderPrev"
+                  class="hero-slider-button"
+                  type="button"
+                  aria-label="Foto sebelumnya"
+                  title="Foto sebelumnya"
+                >
+                  <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <div
+                  class="hero-slider-progress"
+                  role="progressbar"
+                  aria-label="Posisi foto di galeri"
+                  aria-valuemin="1"
+                  aria-valuemax="20"
+                  aria-valuenow="1"
+                >
+                  <span id="heroSliderProgress"></span>
+                </div>
+                <span id="heroSliderCount" class="hero-slider-count" aria-live="polite"
+                  >01 / 6</span
+                >
+                <button
+                  id="heroSliderNext"
+                  class="hero-slider-button"
+                  type="button"
+                  aria-label="Foto berikutnya"
+                  title="Foto berikutnya"
+                >
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+                <button
+                  id="heroSliderToggle"
+                  class="hero-slider-button"
+                  type="button"
+                  aria-label="Jeda slider"
+                  title="Jeda slider"
+                >
+                  <i class="fa-solid fa-pause" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
           </div>
 
           <div
@@ -1386,6 +1608,139 @@
         { threshold: 0.12 },
       );
       revealEls.forEach((el) => revealObserver.observe(el));
+
+      // ===== HERO IMAGE SLIDER =====
+      const heroSlider = document.getElementById("heroSlider");
+      const heroSliderImages = [
+        document.getElementById("heroSliderImage"),
+        document.getElementById("heroSliderImageAlt"),
+      ];
+      const heroSliderCounter = document.getElementById("heroSliderCount");
+      const heroSliderProgress = document.getElementById("heroSliderProgress");
+      const heroSliderProgressTrack = document.querySelector(
+        ".hero-slider-progress",
+      );
+      const heroSliderToggle = document.getElementById("heroSliderToggle");
+      const heroSliderFiles = [
+        "slide.jpg",
+        ...Array.from({ length: 5 }, (_, index) => `slide${index + 1}.jpg`),
+      ];
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+      let heroSlideIndex = 0;
+      let heroActiveImage = 0;
+      let heroLoadToken = 0;
+      let heroTimer;
+      let heroPaused = reducedMotion.matches;
+      let heroPointerStart = null;
+
+      function updateHeroSliderControls() {
+        const current = heroSlideIndex + 1;
+        heroSliderCounter.textContent = `${String(current).padStart(2, "0")} / ${String(heroSliderFiles.length).padStart(2, "0")}`;
+        heroSliderProgress.style.width = `${(current / heroSliderFiles.length) * 100}%`;
+        heroSliderProgressTrack.setAttribute("aria-valuenow", current);
+        heroSliderToggle.setAttribute(
+          "aria-label",
+          heroPaused ? "Lanjutkan slider" : "Jeda slider",
+        );
+        heroSliderToggle.title = heroPaused
+          ? "Lanjutkan slider"
+          : "Jeda slider";
+        heroSliderToggle.innerHTML = heroPaused
+          ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+          : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+      }
+
+      function stopHeroSlider() {
+        window.clearInterval(heroTimer);
+        heroTimer = undefined;
+      }
+
+      function startHeroSlider() {
+        stopHeroSlider();
+        if (heroPaused || document.hidden) return;
+        heroTimer = window.setInterval(() => showHeroSlide(heroSlideIndex + 1), 5500);
+      }
+
+      function showHeroSlide(nextIndex) {
+        heroSlideIndex =
+          (nextIndex + heroSliderFiles.length) % heroSliderFiles.length;
+        const file = heroSliderFiles[heroSlideIndex];
+        const inactiveImage = 1 - heroActiveImage;
+        const imageToLoad = heroSliderImages[inactiveImage];
+        const token = ++heroLoadToken;
+
+        imageToLoad.onload = () => {
+          if (token !== heroLoadToken) return;
+          imageToLoad.alt = `Dokumentasi proyek rumah SYENNZAR, foto ${heroSlideIndex + 1} dari ${heroSliderFiles.length}`;
+          imageToLoad.removeAttribute("aria-hidden");
+          heroSliderImages[heroActiveImage].classList.remove("is-active");
+          imageToLoad.classList.add("is-active");
+          heroSliderImages[heroActiveImage].setAttribute("aria-hidden", "true");
+          heroActiveImage = inactiveImage;
+          updateHeroSliderControls();
+        };
+        imageToLoad.onerror = () => {
+          if (token === heroLoadToken) {
+            showHeroSlide(heroSlideIndex + 1);
+          }
+        };
+        imageToLoad.src = `assets/${file}`;
+
+        const nextImage = new Image();
+        nextImage.src = `assets/${heroSliderFiles[(heroSlideIndex + 1) % heroSliderFiles.length]}`;
+      }
+
+      document
+        .getElementById("heroSliderPrev")
+        .addEventListener("click", () => showHeroSlide(heroSlideIndex - 1));
+      document
+        .getElementById("heroSliderNext")
+        .addEventListener("click", () => showHeroSlide(heroSlideIndex + 1));
+      heroSliderToggle.addEventListener("click", () => {
+        heroPaused = !heroPaused;
+        updateHeroSliderControls();
+        startHeroSlider();
+      });
+      heroSlider.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          showHeroSlide(heroSlideIndex - 1);
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          showHeroSlide(heroSlideIndex + 1);
+        }
+      });
+      heroSlider.addEventListener("pointerdown", (event) => {
+        if (event.target.closest("button")) return;
+        heroPointerStart = event.clientX;
+      });
+      heroSlider.addEventListener("pointerup", (event) => {
+        if (heroPointerStart === null) return;
+        const swipeDistance = event.clientX - heroPointerStart;
+        heroPointerStart = null;
+        if (Math.abs(swipeDistance) > 45) {
+          showHeroSlide(heroSlideIndex + (swipeDistance < 0 ? 1 : -1));
+        }
+      });
+      heroSlider.addEventListener("pointercancel", () => {
+        heroPointerStart = null;
+      });
+      heroSlider.addEventListener("pointerenter", stopHeroSlider);
+      heroSlider.addEventListener("pointerleave", startHeroSlider);
+      heroSlider.addEventListener("focusin", stopHeroSlider);
+      heroSlider.addEventListener("focusout", (event) => {
+        if (!heroSlider.contains(event.relatedTarget)) startHeroSlider();
+      });
+      document.addEventListener("visibilitychange", startHeroSlider);
+      reducedMotion.addEventListener("change", (event) => {
+        heroPaused = event.matches;
+        updateHeroSliderControls();
+        startHeroSlider();
+      });
+      updateHeroSliderControls();
+      startHeroSlider();
 
       // ===== KALKULATOR SIMULASI BIAYA =====
       // Harga fiktif per meter persegi (dalam Rupiah)
